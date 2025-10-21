@@ -1,3 +1,7 @@
+//// Muhammad Dzaki Wirayuda | NIM: 23523197
+//// Ahmad Aiman Zumar Prawirosunoto | NIM: 23523112
+//// Raditya Pratama | NIM: 23523169
+
 package com.example.listapl
 
 import android.os.Bundle
@@ -23,8 +27,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.GridView
-import androidx.compose.material.icons.filled.ViewList
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -191,17 +194,14 @@ fun GenreScreen(onGenreSelected: (String) -> Unit) {
             TopAppBar(
                 title = { Text("Anime Genres", color = Color.White) },
                 actions = {
-                    IconButton(onClick = { isList = !isList }) {
-                        Icon(
-                            imageVector = if (isList) Icons.Filled.GridView else Icons.Filled.ViewList,
-                            contentDescription = "Switch Layout",
-                            tint = Color.White
-                        )
+                    Button(
+                        onClick = { isList = !isList },
+                        modifier = Modifier.padding(end = 8.dp)
+                    ) {
+                        Text(if (isList) "Grid" else "List")
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent
-                )
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
         containerColor = Color.Transparent
@@ -231,7 +231,7 @@ fun GenreScreen(onGenreSelected: (String) -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(genres) { genre ->
-                    GenreCard(genre = genre, onGenreSelected = onGenreSelected, modifier = Modifier.fillMaxWidth())
+                    GenreCard(genre = genre, onGenreSelected = onGenreSelected)
                 }
             }
         }
@@ -279,12 +279,11 @@ fun AnimeListScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { isList = !isList }) {
-                        Icon(
-                            imageVector = if (isList) Icons.Filled.GridView else Icons.Filled.ViewList,
-                            contentDescription = "Switch Layout",
-                            tint = Color.White
-                        )
+                    Button(
+                        onClick = { isList = !isList },
+                        modifier = Modifier.padding(end = 8.dp)
+                    ) {
+                        Text(if (isList) "Grid" else "List")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -319,7 +318,7 @@ fun AnimeListScreen(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(animeInGenre) { anime ->
-                    AnimeCard(anime = anime, onAnimeSelected = onAnimeSelected, modifier = Modifier.fillMaxWidth())
+                    AnimeCard(anime = anime, onAnimeSelected = onAnimeSelected)
                 }
             }
         }
