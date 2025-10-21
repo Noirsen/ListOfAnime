@@ -23,8 +23,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.GridOn
+import androidx.compose.material.icons.filled.GridView
+import androidx.compose.material.icons.filled.ViewList
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -193,7 +193,7 @@ fun GenreScreen(onGenreSelected: (String) -> Unit) {
                 actions = {
                     IconButton(onClick = { isList = !isList }) {
                         Icon(
-                            imageVector = if (isList) Icons.Filled.GridOn else Icons.AutoMirrored.Filled.List,
+                            imageVector = if (isList) Icons.Filled.GridView else Icons.Filled.ViewList,
                             contentDescription = "Switch Layout",
                             tint = Color.White
                         )
@@ -281,7 +281,7 @@ fun AnimeListScreen(
                 actions = {
                     IconButton(onClick = { isList = !isList }) {
                         Icon(
-                            imageVector = if (isList) Icons.Filled.GridOn else Icons.AutoMirrored.Filled.List,
+                            imageVector = if (isList) Icons.Filled.GridView else Icons.Filled.ViewList,
                             contentDescription = "Switch Layout",
                             tint = Color.White
                         )
